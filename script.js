@@ -157,7 +157,7 @@ while ((input = prompt("введите число:"))) {
 }
 
 total = numbers.reduce((acc, number) => (acc += number));
-console.log("#5: ", "numbers", numbers);
+console.log("#6: ", "numbers", numbers);
 
-console.log("#5: ", "Общая сумма чисел равна [сумма]", total);
+console.log("#6: ", "Общая сумма чисел равна [сумма]", total);
 alert(`Общая сумма чисел равна [сумма] = ${total}`);
