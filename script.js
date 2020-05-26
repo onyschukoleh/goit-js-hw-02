@@ -6,16 +6,12 @@
 выведено '1 - Mango', а для индекса 2 выведет '3 - Ajax'.*/
 //==================================================================
 const logItems = function (array) {
-  array.forEach((element) => {
-    console.log("#1: ", `[${array.indexOf(element) + 1}] - [${element}] `);
+  array.forEach((element, index) => {
+    console.log("#1: ", `[${index + 1}] - [${element}] `);
   });
 };
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
 logItems(["Mango", "Poly", "Ajax", "Lux", "Jay", "Kong"]);
-
 logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
 //==================================================================
 /* Задание 2 // Напиши скрипт подсчета стоимости гравировки украшений.
@@ -64,7 +60,7 @@ console.log(
 const findLongestWord = function (string) {
   console.log(string.split(" "));
   const arr = [];
-  string.split(" ").forEach((item) => arr.push([...item].length));
+  string.split(" ").forEach((item) => arr.push(item.length));
   return string.split(" ")[arr.indexOf(Math.max(...arr))];
 };
 
@@ -86,7 +82,7 @@ console.log("#3: ", findLongestWord("May the force be with you")); // 'force'
 троеточие '...', после чего возвращает укороченную версию.*/
 //==================================================================
 const formatString = (string) =>
-  string.split("").length >= 40 ? string.slice(0, 39).concat(["..."]) : string;
+  string.length >= 40 ? string.slice(0, 39).concat("...") : string;
 /*
  * Вызовы функции для проверки работоспособности твоей реализации.
  */
@@ -116,8 +112,8 @@ console.log(
 
 const checkForSpam = function (message) {
   return (
-    message.toLowerCase().split(/\b/).includes("spam") ||
-    message.toLowerCase().split(/\b/).includes("sale")
+    message.toLowerCase().includes("spam") ||
+    message.toLowerCase().includes("sale")
   );
 };
 
@@ -155,8 +151,9 @@ while ((input = prompt("введите число:"))) {
     ? numbers.push(Number(input))
     : alert("Внимание!!!! Было введено не число,попробуйте еще раз....");
 }
-
-total = numbers.reduce((acc, number) => (acc += number));
+numbers.length > 0
+  ? (total = numbers.reduce((acc, number) => acc + number))
+  : alert(`Числа не добавлены`);
 console.log("#6: ", "numbers", numbers);
 
 console.log("#6: ", "Общая сумма чисел равна [сумма]", total);
